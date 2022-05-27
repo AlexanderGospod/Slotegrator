@@ -1,0 +1,2 @@
+# Slotegrator
+Test task
