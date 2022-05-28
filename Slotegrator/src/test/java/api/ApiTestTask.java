@@ -64,7 +64,7 @@ public class ApiTestTask {
                 , successfulRegistrationGamer.getEmail(), successfulRegistrationGamer.getName(), successfulRegistrationGamer.getSurname());
     }
     @Test
-    public void requestingDataOfAnotherGamer()  {
+    public void requestingDataOfAnotherGamers()  {
         //arrange
         MethodsForAuthorization methodsForAuthorization = new MethodsForAuthorization();
         SuccessfulGetAGuestToken successGetToken = methodsForAuthorization.gettingAGuestToken();
@@ -74,8 +74,8 @@ public class ApiTestTask {
                 methodsForGamerRegistration.getUserName(), methodsForGamerRegistration.getUserPassword());
         //act
         MethodsForGetUserData methodsForGetUserData = new MethodsForGetUserData();
-        // Метод запроса данных игрока принимает токен, а возращает объект с телом ответа сервера (ожидается 404 ошибка)
-        SuccessfulGetUserData successfulGetUserData = methodsForGetUserData.gettingYourOtherPlayerSData(
+        // Метод запроса данных игроков принимает токен, а ожидает (по спецификации в методе) 404 ошибку
+        methodsForGetUserData.gettingYourOtherPlayerSData(
                 successfulGetATokenAfterAuthorization.getAccess_token());
     }
 }
